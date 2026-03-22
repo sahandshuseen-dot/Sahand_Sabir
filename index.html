@@ -3,156 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graphic Designer | Bio Link</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>Sahand Sabir Hussein | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0a0a0a;
-            --accent: #007AFF; 
-            --bg: #ffffff;
-            --card-bg: #f5f5f7;
+            --primary-bg: #ffffff;
+            --secondary-bg: #f8f8f8;
+            --accent: #007AFF;
+            --text: #111111;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
+            background-color: var(--primary-bg);
+            color: var(--text);
             margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: var(--primary);
         }
 
+        /* Profile Section */
         .profile {
             text-align: center;
-            margin-top: 30px;
+            margin: 40px 0;
         }
 
         .profile img {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--accent);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border: 4px solid var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        h1 { font-size: 24px; margin: 15px 0 5px; letter-spacing: -0.5px; }
-        .bio { color: #666; font-size: 15px; margin-bottom: 30px; }
+        h1 { font-size: 26px; margin: 20px 0 5px; letter-spacing: -0.5px; }
+        .tagline { color: #666; font-size: 16px; margin-bottom: 30px; }
 
-        .section-title {
+        /* Portfolio Gallery */
+        .section-header {
             width: 100%;
-            max-width: 400px;
+            max-width: 450px;
             font-weight: 700;
-            margin: 25px 0 12px;
             font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #888;
+            letter-spacing: 1.5px;
+            color: #999;
+            margin-bottom: 15px;
         }
 
-        /* Portfolio Cards */
-        .portfolio-grid {
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
             width: 100%;
-            max-width: 400px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+            max-width: 450px;
+            margin-bottom: 40px;
         }
 
-        .work-card {
-            background: var(--card-bg);
-            border-radius: 16px;
+        .project-card {
+            background: var(--secondary-bg);
+            border-radius: 20px;
             overflow: hidden;
             text-decoration: none;
-            color: var(--primary);
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: inherit;
+            transition: 0.3s ease;
             border: 1px solid #eee;
         }
 
-        .work-card:hover {
+        .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
             border-color: var(--accent);
         }
 
-        .work-info {
-            padding: 15px;
+        .project-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .work-info span { font-weight: 600; font-size: 15px; }
+        .project-info span { font-weight: 600; }
 
-        /* Social Links */
-        .links {
+        /* Contact Section */
+        .contact-links {
             width: 100%;
-            max-width: 400px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 10px;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .social-btn {
-            background: var(--primary);
-            color: white;
-            padding: 12px;
-            border-radius: 12px;
+        .btn {
+            padding: 18px;
+            border-radius: 15px;
             text-decoration: none;
             text-align: center;
-            font-size: 14px;
-            font-weight: 600;
+            font-weight: 700;
             transition: 0.3s;
         }
 
-        .social-btn:hover { opacity: 0.8; }
-        .whatsapp { background: #25D366; }
+        .btn-behance { background: #0057ff; color: white; }
+        .btn-whatsapp { background: #25D366; color: white; }
 
-        footer { margin-top: 50px; font-size: 12px; color: #bbb; padding-bottom: 20px; }
+        footer { margin-top: 60px; font-size: 13px; color: #ccc; }
     </style>
 </head>
 <body>
 
     <div class="profile">
-        <img src="profile.jpg" alt="Designer Profile">
-        <h1>Your Name</h1>
-        <p class="bio">Social Media Design Specialist</p>
+        <img src="profile.jpg" alt="Sahand Sabir Hussein">
+        <h1>Sahand Sabir Hussein</h1>
+        <p class="tagline">Social Media Graphic Designer</p>
     </div>
 
-    <div class="section-title">Latest Works</div>
-    <div class="portfolio-grid">
-        <a href="https://www.behance.net/gallery/230238317/SUN-SET" class="work-card" target="_blank">
-            <div class="work-info">
-                <span>🌅 Sun Set Project</span>
-                <small>Behance ↗</small>
+    <div class="section-header">Featured Projects</div>
+    
+    <div class="gallery">
+        <a href="https://www.behance.net/gallery/230238317/SUN-SET" class="project-card" target="_blank">
+            <img src="sunset_preview.jpg" alt="Sun Set Project">
+            <div class="project-info">
+                <span>Sun Set Branding</span>
+                <small>View Project ↗</small>
             </div>
         </a>
 
-        <a href="https://www.behance.net/gallery/232752781/Teammart-Market" class="work-card" target="_blank">
-            <div class="work-info">
-                <span>🛒 Teammart Market</span>
-                <small>Behance ↗</small>
+        <a href="https://www.behance.net/gallery/232752781/Teammart-Market" class="project-card" target="_blank">
+            <img src="teammart_preview.jpg" alt="Teammart">
+            <div class="project-info">
+                <span>Teammart Market</span>
+                <small>View Project ↗</small>
             </div>
         </a>
 
-        <a href="https://www.behance.net/gallery/204856845/Social-Media-Energy-Drink" class="work-card" target="_blank">
-            <div class="work-info">
-                <span>⚡ Energy Drink Ad</span>
-                <small>Behance ↗</small>
+        <a href="https://www.behance.net/gallery/204856845/Social-Media-Energy-Drink" class="project-card" target="_blank">
+            <img src="energy_preview.jpg" alt="Energy Drink">
+            <div class="project-info">
+                <span>Energy Drink Campaign</span>
+                <small>View Project ↗</small>
             </div>
         </a>
     </div>
 
-    <div class="section-title">Connect With Me</div>
-    <div class="links">
-        <a href="https://instagram.com/yourusername" class="social-btn">Instagram</a>
-        <a href="https://wa.me/964000000000" class="social-btn whatsapp">WhatsApp</a>
+    <div class="section-header">Get In Touch</div>
+    <div class="contact-links">
+        <a href="https://www.behance.net/sahandshusen1" class="btn btn-behance">View Full Behance Portfolio</a>
+        <a href="https://wa.me/9647500000000" class="btn btn-whatsapp">Contact via WhatsApp</a>
     </div>
 
-    <footer>&copy; 2026 | Professional Design Services</footer>
+    <footer>&copy; 2026 Sahand Sabir Hussein</footer>
 
 </body>
 </html>
