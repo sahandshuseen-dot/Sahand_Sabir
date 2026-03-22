@@ -3,47 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sahand Sabir | Animated Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Sahand Sabir | Portfolio 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --accent: #007AFF;
-            --bg: #ffffff;
+            --text-dark: #111111;
         }
 
+        /* باگراوەندێکی سپی کە بەردەوام ڕەنگی شەپۆل دەدات */
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background: var(--bg);
-            color: #111;
+            background: linear-gradient(135deg, #ffffff, #f0f7ff, #ffffff, #eef6ff);
+            background-size: 400% 400%;
+            animation: mainGradient 10s ease infinite;
+            color: var(--text-dark);
             display: flex;
             flex-direction: column;
             align-items: center;
-            overflow-x: hidden;
             min-height: 100vh;
         }
 
-        /* دروستکردنی باگراوندە جووڵاوەکە */
-        .animated-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
-        }
-
-        .bubble {
-            position: absolute;
-            background: rgba(0, 122, 255, 0.05);
-            border-radius: 50%;
-            animation: float 20s infinite linear;
-            bottom: -100px;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-            50% { opacity: 0.8; }
-            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+        @keyframes mainGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
@@ -51,34 +37,39 @@
             max-width: 460px;
             padding: 60px 20px;
             box-sizing: border-box;
-            position: relative;
-            z-index: 1;
         }
 
         /* Profile Section */
         .profile {
             text-align: center;
             margin-bottom: 50px;
-            animation: fadeIn 1s ease-out;
+            animation: dropIn 1s ease-out;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
+        @keyframes dropIn {
+            from { opacity: 0; transform: translateY(-30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .profile img {
-            width: 130px; height: 130px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid #fff;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 4px solid #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: 0.4s ease;
         }
 
-        h1 { font-size: 30px; font-weight: 800; margin: 20px 0 5px; letter-spacing: -1px; }
-        .tagline { color: #888; font-size: 16px; }
+        .profile img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,122,255,0.2);
+        }
 
-        /* Project Cards */
+        h1 { font-size: 30px; font-weight: 900; margin: 15px 0 5px; letter-spacing: -1.5px; }
+        .tagline { color: #888; font-size: 16px; margin-bottom: 20px; }
+
+        /* Project Cards - No Stretch */
         .gallery {
             display: flex;
             flex-direction: column;
@@ -86,30 +77,37 @@
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
             overflow: hidden;
             text-decoration: none;
             color: inherit;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             transition: 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+            animation: cardReveal 0.8s ease backwards;
+        }
+
+        @keyframes cardReveal {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .img-box { width: 100%; background: #fdfdfd; }
+        .img-box img {
+            width: 100%;
+            height: auto; /* لێرەدا سایزی ڕاستەقینەی وێنەکە دەپارێزرێت */
+            display: block;
+            transition: 0.6s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
             border-color: var(--accent);
         }
 
-        .img-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .info {
+        .project-info {
             padding: 20px;
             display: flex;
             justify-content: space-between;
@@ -117,12 +115,12 @@
             background: #fff;
         }
 
-        .info h3 { margin: 0; font-size: 18px; font-weight: 700; }
-        .go { color: var(--accent); font-weight: 800; }
+        .project-info h3 { margin: 0; font-size: 18px; font-weight: 700; }
+        .arrow { color: var(--accent); font-weight: 900; font-size: 20px; }
 
-        /* Action Buttons */
+        /* Buttons Section */
         .links {
-            margin-top: 30px;
+            margin-top: 40px;
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -130,79 +128,80 @@
 
         .btn {
             padding: 20px;
-            border-radius: 20px;
+            border-radius: 22px;
             text-decoration: none;
             text-align: center;
             font-weight: 800;
+            font-size: 16px;
             transition: 0.3s;
         }
 
         .btn-behance { background: #000; color: #fff; }
         .btn-whatsapp { 
-            background: #25D366; color: #fff; 
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+            background: #25D366; 
+            color: #fff; 
+            box-shadow: 0 10px 20px rgba(37,211,102,0.2);
+            animation: whatsappPulse 2s infinite;
         }
 
-        .btn:hover { transform: scale(1.03); opacity: 0.9; }
+        @keyframes whatsappPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
 
-        footer { margin-top: 60px; font-size: 11px; color: #bbb; text-align: center; letter-spacing: 2px; }
+        .btn:hover { opacity: 0.9; }
+
+        footer { margin-top: 60px; font-size: 11px; color: #ccc; letter-spacing: 2px; text-align: center; }
     </style>
 </head>
 <body>
-
-    <div class="animated-bg">
-        <div class="bubble" style="left: 10%; width: 80px; height: 80px; animation-delay: 0s;"></div>
-        <div class="bubble" style="left: 30%; width: 40px; height: 40px; animation-delay: 2s;"></div>
-        <div class="bubble" style="left: 70%; width: 100px; height: 100px; animation-delay: 4s;"></div>
-        <div class="bubble" style="left: 90%; width: 60px; height: 60px; animation-delay: 6s;"></div>
-        <div class="bubble" style="left: 50%; width: 20px; height: 20px; animation-delay: 8s;"></div>
-    </div>
 
     <div class="container">
         <div class="profile">
             <img src="https://i.postimg.cc/76vvPhQg/freepik-edit-Blue-photoprompt-Ultraphotorealistic-cinematic-edit-(3).jpg" alt="Sahand Sabir">
             <h1>Sahand Sabir</h1>
-            <p class="tagline">Graphic Designer • Visual Artist</p>
+            <p class="tagline">Visual Artist & Graphic Designer</p>
         </div>
 
         <div class="gallery">
-            <a href="https://www.behance.net/gallery/235073637/Automotive-Visuals" class="project-card" target="_blank">
-                <div class="img-container">
+            <a href="https://www.behance.net/gallery/235073637/Automotive-Visuals" class="project-card" style="animation-delay: 0.2s;">
+                <div class="img-box">
                     <img src="https://i.postimg.cc/zvzJCpYr/dffcab77f71a44775c91293605e2e680.jpg" alt="Automotive">
                 </div>
-                <div class="info">
+                <div class="project-info">
                     <h3>Automotive Visuals</h3>
-                    <span class="go">View ↗</span>
+                    <span class="arrow">→</span>
                 </div>
             </a>
 
-            <a href="https://www.behance.net/gallery/232752781/Teammart-Market" class="project-card" target="_blank">
-                <div class="img-container">
+            <a href="https://www.behance.net/gallery/232752781/Teammart-Market" class="project-card" style="animation-delay: 0.4s;">
+                <div class="img-box">
                     <img src="https://i.postimg.cc/zBRWmzyJ/b33f935468a3e8b3f84b6260aa0a84b8.jpg" alt="Teammart">
                 </div>
-                <div class="info">
+                <div class="project-info">
                     <h3>Teammart Branding</h3>
-                    <span class="go">View ↗</span>
+                    <span class="arrow">→</span>
                 </div>
             </a>
 
-            <a href="https://www.behance.net/gallery/204856845/Social-Media-Energy-Drink" class="project-card" target="_blank">
-                <div class="img-container">
+            <a href="https://www.behance.net/gallery/204856845/Social-Media-Energy-Drink" class="project-card" style="animation-delay: 0.6s;">
+                <div class="img-box">
                     <img src="https://i.postimg.cc/VkYVzTBq/f6288eb2384348f1df1c40f5dd1839f6.jpg" alt="Energy Drink">
                 </div>
-                <div class="info">
-                    <h3>Energy Concept</h3>
-                    <span class="go">View ↗</span>
+                <div class="project-info">
+                    <h3>Energy Drink Concept</h3>
+                    <span class="arrow">→</span>
                 </div>
             </a>
         </div>
 
         <div class="links">
             <a href="https://www.behance.net/sahandshusen1" class="btn btn-behance">Behance Portfolio</a>
-            <a href="https://wa.me/9647517050214" class="btn btn-whatsapp">Let's Talk on WhatsApp</a>
+            <a href="https://wa.me/9647517050214" class="btn btn-whatsapp">WhatsApp Contact</a>
         </div>
 
-        <footer>© 2026 SAHAND SABIR HUSSEIN</footer>
+        <footer>DESIGNED BY SAHAND SABIR © 2026</footer>
     </div>
 
 </body>
