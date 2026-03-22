@@ -1,261 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sahand Sabir | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sahand Sabir | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#0a84ff;
+      --text:#0f172a;
+      --muted:#667085;
+      --glass:rgba(255,255,255,0.5);
+      --glass-strong:rgba(255,255,255,0.72);
+      --stroke:rgba(255,255,255,0.55);
+      --shadow:0 10px 30px rgba(15,23,42,0.07);
+      --shadow-hover:0 18px 45px rgba(10,132,255,0.12);
+      --radius:28px;
+    }
 
-<style>
-:root{
-  --accent:#0a84ff;
-  --text:#111;
-  --glass:rgba(255,255,255,0.45);
-}
+    *{
+      box-sizing:border-box;
+    }
 
-/* RESET */
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:'Inter',sans-serif;
-  color:var(--text);
-  overflow-x:hidden;
-}
+    html{
+      scroll-behavior:smooth;
+    }
 
-/* 🔥 ULTRA BACKGROUND */
-body{
-  background:
-    linear-gradient(120deg,#eaf4ff,#fdfbff,#f3faff,#eef8ff),
-    linear-gradient(240deg,#dfefff,#fcefff,#eaf4ff);
-  background-size: 300% 300%, 400% 400%;
-  animation: gradientMove 8s ease infinite;
-}
+    body{
+      margin:0;
+      font-family:'Inter',sans-serif;
+      color:var(--text);
+      overflow-x:hidden;
+      min-height:100vh;
+      background:
+        radial-gradient(circle at top left, rgba(10,132,255,.12), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(90,200,250,.10), transparent 28%),
+        linear-gradient(135deg, #f8fbff 0%, #eef5ff 35%, #f9fbff 65%, #eef7ff 100%);
+      background-size: 120% 120%, 120% 120%, 200% 200%;
+      animation: bgShift 18s ease-in-out infinite;
+    }
 
-@keyframes gradientMove{
-  0%{background-position:0% 50%,100% 50%;}
-  25%{background-position:50% 100%,50% 0%;}
-  50%{background-position:100% 50%,0% 50%;}
-  75%{background-position:50% 0%,50% 100%;}
-  100%{background-position:0% 50%,100% 50%;}
-}
+    @keyframes bgShift{
+      0%{
+        background-position: 0% 0%, 100% 100%, 0% 50%;
+      }
+      50%{
+        background-position: 8% 6%, 92% 94%, 100% 50%;
+      }
+      100%{
+        background-position: 0% 0%, 100% 100%, 0% 50%;
+      }
+    }
 
-/* BLOBS */
-.bg-animation{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-}
+    .bg-animation{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      overflow:hidden;
+      pointer-events:none;
+    }
 
-.blob{
-  position:absolute;
-  border-radius:50%;
-  filter:blur(60px);
-  opacity:0.4;
-  animation:blobMove 18s infinite alternate ease-in-out;
-}
+    .blob{
+      position:absolute;
+      border-radius:50%;
+      filter:blur(85px);
+      opacity:.22;
+      animation: calmFloat 22s ease-in-out infinite alternate;
+      will-change:transform;
+    }
 
-.blob:nth-child(1){
-  width:320px;height:320px;
-  top:0%;left:5%;
-  background:#0a84ff55;
-}
-.blob:nth-child(2){
-  width:260px;height:260px;
-  top:50%;right:10%;
-  background:#5ac8fa55;
-  animation-duration:22s;
-}
-.blob:nth-child(3){
-  width:280px;height:280px;
-  bottom:0%;left:30%;
-  background:#a259ff44;
-  animation-duration:20s;
-}
-.blob:nth-child(4){
-  width:220px;height:220px;
-  top:30%;left:60%;
-  background:#ff7ad944;
-  animation-duration:24s;
-}
+    .blob:nth-child(1){
+      width:320px;
+      height:320px;
+      top:-40px;
+      left:4%;
+      background:rgba(10,132,255,.42);
+    }
 
-/* smooth random movement */
-@keyframes blobMove{
-  0%{transform:translate(0,0) scale(1);}
-  25%{transform:translate(40px,-30px) scale(1.1);}
-  50%{transform:translate(-30px,30px) scale(1.05);}
-  75%{transform:translate(20px,40px) scale(1.12);}
-  100%{transform:translate(-40px,-20px) scale(1.08);}
-}
+    .blob:nth-child(2){
+      width:280px;
+      height:280px;
+      right:4%;
+      top:38%;
+      background:rgba(90,200,250,.34);
+      animation-duration:26s;
+    }
 
-/* LIGHT PULSE */
-.bg-animation::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.5), transparent 60%);
-  opacity:0.2;
-  animation:pulse 10s infinite ease-in-out;
-}
+    .blob:nth-child(3){
+      width:340px;
+      height:340px;
+      left:28%;
+      bottom:-80px;
+      background:rgba(162,89,255,.22);
+      animation-duration:24s;
+    }
 
-@keyframes pulse{
-  0%{transform:scale(1);opacity:0.15;}
-  50%{transform:scale(1.2);opacity:0.3;}
-  100%{transform:scale(1);opacity:0.15;}
-}
+    @keyframes calmFloat{
+      0%{
+        transform:translate3d(0,0,0) scale(1);
+      }
+      100%{
+        transform:translate3d(24px,-34px,0) scale(1.08);
+      }
+    }
 
-/* GLASS UI */
-.container{
-  width:min(100%,760px);
-  margin:auto;
-  padding:60px 20px;
-}
+    .container{
+      width:min(100%, 780px);
+      margin:0 auto;
+      padding:56px 20px 44px;
+    }
 
-.profile{
-  text-align:center;
-  margin-bottom:40px;
-  padding:25px;
-  border-radius:30px;
-  background:var(--glass);
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,0.5);
-}
+    .profile{
+      position:relative;
+      text-align:center;
+      margin-bottom:28px;
+      padding:28px 22px 24px;
+      border-radius:34px;
+      background:var(--glass);
+      border:1px solid var(--stroke);
+      backdrop-filter:blur(22px) saturate(165%);
+      -webkit-backdrop-filter:blur(22px) saturate(165%);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
 
-.profile img{
-  width:130px;height:130px;
-  border-radius:50%;
-  border:4px solid #fff;
-  transition:.4s;
-}
-.profile img:hover{
-  transform:scale(1.05);
-}
+    .profile::before,
+    .project-card::before,
+    .btn::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(255,255,255,.34), rgba(255,255,255,.08));
+      pointer-events:none;
+    }
 
-h1{margin:15px 0 5px;font-size:34px;font-weight:900;}
-.tagline{color:#666;}
+    .profile img{
+      position:relative;
+      width:134px;
+      height:134px;
+      object-fit:cover;
+      border-radius:50%;
+      border:4px solid rgba(255,255,255,.78);
+      box-shadow:
+        0 14px 28px rgba(15,23,42,.10),
+        inset 0 1px 0 rgba(255,255,255,.55);
+      transition:transform .35s ease, box-shadow .35s ease;
+    }
 
-.gallery{
-  display:flex;
-  flex-direction:column;
-  gap:25px;
-}
+    .profile img:hover{
+      transform:scale(1.04);
+      box-shadow:
+        0 18px 36px rgba(15,23,42,.14),
+        inset 0 1px 0 rgba(255,255,255,.55);
+    }
 
-.project-card{
-  border-radius:25px;
-  overflow:hidden;
-  background:var(--glass);
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,0.5);
-  transition:.35s;
-  text-decoration:none;
-  color:inherit;
-}
+    h1{
+      position:relative;
+      margin:16px 0 6px;
+      font-size:34px;
+      line-height:1;
+      font-weight:900;
+      letter-spacing:-1.5px;
+    }
 
-.project-card:hover{
-  transform:translateY(-8px);
-}
+    .tagline{
+      position:relative;
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      font-weight:500;
+    }
 
-.img-box img{
-  width:100%;
-  height:auto;
-}
+    .gallery{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
 
-.project-info{
-  padding:20px;
-  display:flex;
-  justify-content:space-between;
-  background:#ffffffcc;
-}
+    .project-card{
+      position:relative;
+      display:block;
+      overflow:hidden;
+      border-radius:var(--radius);
+      text-decoration:none;
+      color:inherit;
+      background:rgba(255,255,255,.46);
+      border:1px solid rgba(255,255,255,.56);
+      backdrop-filter:blur(20px) saturate(160%);
+      -webkit-backdrop-filter:blur(20px) saturate(160%);
+      box-shadow:var(--shadow);
+      transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+    }
 
-.arrow{
-  color:var(--accent);
-  font-weight:900;
-}
+    .project-card:hover{
+      transform:translateY(-6px);
+      box-shadow:var(--shadow-hover);
+      border-color:rgba(255,255,255,.8);
+    }
 
-.links{
-  margin-top:30px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
+    .img-box{
+      width:100%;
+      overflow:hidden;
+      background:rgba(255,255,255,.18);
+      border-bottom:1px solid rgba(255,255,255,.4);
+    }
 
-.btn{
-  padding:18px;
-  border-radius:20px;
-  text-align:center;
-  font-weight:800;
-  background:var(--glass);
-  backdrop-filter:blur(15px);
-}
+    .img-box img{
+      width:100%;
+      height:auto;
+      display:block;
+      transition:transform .5s ease;
+    }
 
-footer{
-  text-align:center;
-  margin-top:40px;
-  font-size:11px;
-  color:#888;
-}
-</style>
+    .project-card:hover .img-box img{
+      transform:scale(1.018);
+    }
+
+    .project-info{
+      position:relative;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      padding:18px 20px;
+      background:rgba(255,255,255,.32);
+    }
+
+    .project-info h3{
+      margin:0;
+      font-size:18px;
+      font-weight:800;
+      letter-spacing:-.3px;
+    }
+
+    .arrow{
+      width:42px;
+      height:42px;
+      display:grid;
+      place-items:center;
+      flex-shrink:0;
+      border-radius:50%;
+      color:var(--accent);
+      font-size:18px;
+      font-weight:900;
+      background:var(--glass-strong);
+      border:1px solid rgba(255,255,255,.7);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.5);
+      transition:transform .28s ease, background .28s ease;
+    }
+
+    .project-card:hover .arrow{
+      transform:translateX(4px);
+      background:rgba(255,255,255,.88);
+    }
+
+    .links{
+      margin-top:20px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .btn{
+      position:relative;
+      display:block;
+      text-align:center;
+      text-decoration:none;
+      padding:17px 18px;
+      border-radius:22px;
+      font-size:16px;
+      font-weight:800;
+      color:var(--text);
+      background:rgba(255,255,255,.48);
+      border:1px solid rgba(255,255,255,.62);
+      backdrop-filter:blur(18px) saturate(160%);
+      -webkit-backdrop-filter:blur(18px) saturate(160%);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:var(--shadow-hover);
+      border-color:rgba(255,255,255,.8);
+    }
+
+    .btn span{
+      position:relative;
+      z-index:1;
+    }
+
+    footer{
+      margin-top:34px;
+      text-align:center;
+      font-size:11px;
+      letter-spacing:2px;
+      color:rgba(15,23,42,.45);
+    }
+
+    @media (max-width: 640px){
+      .container{
+        padding-top:40px;
+      }
+
+      .profile{
+        border-radius:28px;
+      }
+
+      .project-card{
+        border-radius:24px;
+      }
+
+      h1{
+        font-size:30px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto !important;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="bg-animation">
-  <div class="blob"></div>
-  <div class="blob"></div>
-  <div class="blob"></div>
-  <div class="blob"></div>
-</div>
-
-<div class="container">
-
-  <div class="profile">
-    <img src="https://i.postimg.cc/76vvPhQg/freepik-edit-Blue-photoprompt-Ultraphotorealistic-cinematic-edit-(3).jpg">
-    <h1>Sahand Sabir</h1>
-    <p class="tagline">Graphic Designer • Visual Artist</p>
+  <div class="bg-animation">
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
   </div>
 
-  <div class="gallery">
+  <div class="container">
+    <div class="profile">
+      <img src="https://i.postimg.cc/76vvPhQg/freepik-edit-Blue-photoprompt-Ultraphotorealistic-cinematic-edit-(3).jpg" alt="Sahand Sabir" />
+      <h1>Sahand Sabir</h1>
+      <p class="tagline">Graphic Designer • Visual Artist</p>
+    </div>
 
-    <a href="https://www.behance.net/gallery/235073637/Automotive-Visuals" class="project-card" target="_blank">
-      <div class="img-box">
-        <img src="https://i.postimg.cc/zvzJCpYr/dffcab77f71a44775c91293605e2e680.jpg">
-      </div>
-      <div class="project-info">
-        <h3>Automotive Visuals</h3>
-        <span class="arrow">→</span>
-      </div>
-    </a>
+    <div class="gallery">
+      <a href="https://www.behance.net/gallery/235073637/Automotive-Visuals" class="project-card" target="_blank" rel="noopener noreferrer">
+        <div class="img-box">
+          <img src="https://i.postimg.cc/zvzJCpYr/dffcab77f71a44775c91293605e2e680.jpg" alt="Automotive Visuals" />
+        </div>
+        <div class="project-info">
+          <h3>Automotive Visuals</h3>
+          <span class="arrow">→</span>
+        </div>
+      </a>
 
-    <a href="https://www.behance.net/gallery/232752781/Teammart-Market" class="project-card" target="_blank">
-      <div class="img-box">
-        <img src="https://i.postimg.cc/zBRWmzyJ/b33f935468a3e8b3f84b6260aa0a84b8.jpg">
-      </div>
-      <div class="project-info">
-        <h3>Teammart Branding</h3>
-        <span class="arrow">→</span>
-      </div>
-    </a>
+      <a href="https://www.behance.net/gallery/232752781/Teammart-Market" class="project-card" target="_blank" rel="noopener noreferrer">
+        <div class="img-box">
+          <img src="https://i.postimg.cc/zBRWmzyJ/b33f935468a3e8b3f84b6260aa0a84b8.jpg" alt="Teammart Branding" />
+        </div>
+        <div class="project-info">
+          <h3>Teammart Branding</h3>
+          <span class="arrow">→</span>
+        </div>
+      </a>
 
-    <a href="https://www.behance.net/gallery/204856845/Social-Media-Energy-Drink" class="project-card" target="_blank">
-      <div class="img-box">
-        <img src="https://i.postimg.cc/VkYVzTBq/f6288eb2384348f1df1c40f5dd1839f6.jpg">
-      </div>
-      <div class="project-info">
-        <h3>Energy Drink Concept</h3>
-        <span class="arrow">→</span>
-      </div>
-    </a>
+      <a href="https://www.behance.net/gallery/204856845/Social-Media-Energy-Drink" class="project-card" target="_blank" rel="noopener noreferrer">
+        <div class="img-box">
+          <img src="https://i.postimg.cc/VkYVzTBq/f6288eb2384348f1df1c40f5dd1839f6.jpg" alt="Energy Drink Concept" />
+        </div>
+        <div class="project-info">
+          <h3>Energy Drink Concept</h3>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+    </div>
 
+    <div class="links">
+      <a href="https://www.behance.net/sahandshusen1" class="btn" target="_blank" rel="noopener noreferrer">
+        <span>Behance Portfolio</span>
+      </a>
+      <a href="https://wa.me/9647517050214" class="btn" target="_blank" rel="noopener noreferrer">
+        <span>WhatsApp Contact</span>
+      </a>
+    </div>
+
+    <footer>© 2026 SAHAND SABIR</footer>
   </div>
-
-  <div class="links">
-    <a href="https://www.behance.net/sahandshusen1" class="btn">Behance</a>
-    <a href="https://wa.me/9647517050214" class="btn">WhatsApp</a>
-  </div>
-
-  <footer>© 2026 SAHAND</footer>
-
-</div>
 
 </body>
 </html>
