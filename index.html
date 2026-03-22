@@ -1,181 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sahand Sabir | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sahand Sabir | Portfolio 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #007aff;
+      --accent-soft: rgba(0, 122, 255, 0.10);
+      --text: #111827;
+      --muted: #6b7280;
+      --card: rgba(255, 255, 255, 0.72);
+      --border: rgba(255, 255, 255, 0.5);
+      --shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+      --shadow-hover: 0 20px 50px rgba(0, 122, 255, 0.12);
+    }
 
-<style>
-:root {
-  --accent:#007aff;
-  --glass:rgba(255,255,255,0.6);
-}
+    * {
+      box-sizing: border-box;
+    }
 
-body{
-  margin:0;
-  font-family:'Inter',sans-serif;
-  background:linear-gradient(180deg,#f8fbff,#eef6ff);
-  color:#111;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f7fbff;
+      color: var(--text);
+      overflow-x: hidden;
+    }
 
-/* background */
-.bg{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  background:
-  radial-gradient(circle at 20% 20%, rgba(0,122,255,0.15), transparent 30%),
-  radial-gradient(circle at 80% 70%, rgba(90,200,250,0.15), transparent 30%);
-}
+    body {
+      min-height: 100vh;
+      position: relative;
+      background:
+        radial-gradient(circle at top left, rgba(0,122,255,0.08), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(0,122,255,0.08), transparent 28%),
+        linear-gradient(180deg, #fcfdff 0%, #f4f9ff 100%);
+    }
 
-/* container */
-.container{
-  width:min(1100px,90%);
-  margin:auto;
-  padding:60px 0;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-/* title */
-.title{
-  text-align:center;
-  margin-bottom:40px;
-}
+    .bg-animation {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
 
-.title h1{
-  font-size:42px;
-  margin:0;
-  font-weight:900;
-}
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(30px);
+      opacity: 0.55;
+      animation: float 14s ease-in-out infinite alternate;
+    }
 
-/* gallery */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:28px;
-}
+    .blob:nth-child(1) {
+      width: 220px;
+      height: 220px;
+      top: 8%;
+      left: 8%;
+      background: rgba(0, 122, 255, 0.16);
+    }
 
-/* card */
-.card{
-  border-radius:26px;
-  overflow:hidden;
-  background:var(--glass);
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,0.4);
-  transition:.3s;
-}
+    .blob:nth-child(2) {
+      width: 170px;
+      height: 170px;
+      top: 45%;
+      right: 10%;
+      background: rgba(90, 200, 250, 0.18);
+      animation-duration: 18s;
+    }
 
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 20px 50px rgba(0,122,255,0.15);
-}
+    .blob:nth-child(3) {
+      width: 260px;
+      height: 260px;
+      bottom: 5%;
+      left: 35%;
+      background: rgba(0, 122, 255, 0.10);
+      animation-duration: 20s;
+    }
 
-/* IMPORTANT PART */
-.img-box img{
-  width:100%;
-  height:auto; /* 👈 ئەمە گرنگە بۆ crop نەکردن */
-  display:block;
-}
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.35) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.35) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.35;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+    }
 
-/* info */
-.info{
-  padding:18px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+    @keyframes float {
+      from {
+        transform: translateY(0px) translateX(0px) scale(1);
+      }
+      to {
+        transform: translateY(-30px) translateX(20px) scale(1.08);
+      }
+    }
 
-.info h3{
-  margin:0;
-  font-size:18px;
-}
+    .container {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      padding: 60px 20px 50px;
+      position: relative;
+    }
 
-.arrow{
-  color:var(--accent);
-  font-weight:900;
-}
+    .profile {
+      text-align: center;
+      margin-bottom: 44px;
+    }
 
-/* links */
-.links{
-  margin-top:40px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-}
+    .profile img {
+      width: 136px;
+      height: 136px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid rgba(255,255,255,0.95);
+      box-shadow: 0 16px 35px rgba(0,0,0,0.10);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
 
-.btn{
-  padding:18px;
-  text-align:center;
-  border-radius:20px;
-  font-weight:800;
-  text-decoration:none;
-}
+    .profile img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.14);
+    }
 
-.behance{background:#000;color:#fff;}
-.whatsapp{background:#25D366;color:#fff;}
+    h1 {
+      margin: 18px 0 6px;
+      font-size: clamp(30px, 5vw, 40px);
+      font-weight: 900;
+      letter-spacing: -1.6px;
+    }
 
-footer{
-  text-align:center;
-  margin-top:40px;
-  font-size:12px;
-  color:#aaa;
-}
-</style>
+    .tagline {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    .project-card {
+      display: block;
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(0, 122, 255, 0.22);
+    }
+
+    .img-box {
+      width: 100%;
+      background: #f3f6fa;
+    }
+
+    .img-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-info {
+      padding: 20px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255,255,255,0.88);
+    }
+
+    .project-info h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .arrow {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 900;
+      flex-shrink: 0;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .project-card:hover .arrow {
+      transform: translateX(4px);
+      background: rgba(0, 122, 255, 0.16);
+    }
+
+    .links {
+      margin-top: 34px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .btn {
+      display: block;
+      padding: 18px 20px;
+      border-radius: 22px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 16px;
+      transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      opacity: 0.98;
+    }
+
+    .btn-behance {
+      background: #111;
+      color: #fff;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: #fff;
+      box-shadow: 0 12px 26px rgba(37,211,102,0.18);
+    }
+
+    footer {
+      margin-top: 54px;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #b0b7c3;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding-top: 42px;
+      }
+
+      .project-info {
+        padding: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="bg"></div>
-
-<div class="container">
-
-  <div class="title">
-    <h1>Sahand Sabir</h1>
+  <div class="bg-animation">
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="grid-overlay"></div>
   </div>
 
-  <div class="gallery">
+  <div class="container">
+    <div class="profile">
+      <img src="https://i.postimg.cc/76vvPhQg/freepik-edit-Blue-photoprompt-Ultraphotorealistic-cinematic-edit-(3).jpg" alt="Sahand Sabir">
+      <h1>Sahand Sabir</h1>
+      <p class="tagline">Graphic Designer • Visual Artist</p>
+    </div>
 
-    <a href="https://www.behance.net/gallery/235073637/Automotive-Visuals" class="card" target="_blank">
-      <div class="img-box">
-        <img src="https://i.postimg.cc/zvzJCpYr/dffcab77f71a44775c91293605e2e680.jpg">
-      </div>
-      <div class="info">
-        <h3>Automotive Visuals</h3>
-        <span class="arrow">→</span>
-      </div>
-    </a>
+    <div class="gallery">
+      <a href="https://www.behance.net/gallery/235073637/Automotive-Visuals" class="project-card" target="_blank" rel="noopener noreferrer">
+        <div class="img-box">
+          <img src="https://i.postimg.cc/zvzJCpYr/dffcab77f71a44775c91293605e2e680.jpg" alt="Automotive Visuals">
+        </div>
+        <div class="project-info">
+          <h3>Automotive Visuals</h3>
+          <span class="arrow">→</span>
+        </div>
+      </a>
 
-    <a href="https://www.behance.net/gallery/232752781/Teammart-Market" class="card" target="_blank">
-      <div class="img-box">
-        <img src="https://i.postimg.cc/zBRWmzyJ/b33f935468a3e8b3f84b6260aa0a84b8.jpg">
-      </div>
-      <div class="info">
-        <h3>Teammart Branding</h3>
-        <span class="arrow">→</span>
-      </div>
-    </a>
+      <a href="https://www.behance.net/gallery/232752781/Teammart-Market" class="project-card" target="_blank" rel="noopener noreferrer">
+        <div class="img-box">
+          <img src="https://i.postimg.cc/zBRWmzyJ/b33f935468a3e8b3f84b6260aa0a84b8.jpg" alt="Teammart Branding">
+        </div>
+        <div class="project-info">
+          <h3>Teammart Branding</h3>
+          <span class="arrow">→</span>
+        </div>
+      </a>
 
-    <a href="https://www.behance.net/gallery/204856845/Social-Media-Energy-Drink" class="card" target="_blank">
-      <div class="img-box">
-        <img src="https://i.postimg.cc/VkYVzTBq/f6288eb2384348f1df1c40f5dd1839f6.jpg">
-      </div>
-      <div class="info">
-        <h3>Energy Drink Concept</h3>
-        <span class="arrow">→</span>
-      </div>
-    </a>
+      <a href="https://www.behance.net/gallery/204856845/Social-Media-Energy-Drink" class="project-card" target="_blank" rel="noopener noreferrer">
+        <div class="img-box">
+          <img src="https://i.postimg.cc/VkYVzTBq/f6288eb2384348f1df1c40f5dd1839f6.jpg" alt="Energy Drink Concept">
+        </div>
+        <div class="project-info">
+          <h3>Energy Drink Concept</h3>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+    </div>
 
+    <div class="links">
+      <a href="https://www.behance.net/sahandshusen1" class="btn btn-behance" target="_blank" rel="noopener noreferrer">
+        Behance Portfolio
+      </a>
+      <a href="https://wa.me/9647517050214" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+        WhatsApp Contact
+      </a>
+    </div>
+
+    <footer>© 2026 SAHAND SABIR HUSSEIN</footer>
   </div>
-
-  <div class="links">
-    <a href="https://www.behance.net/sahandshusen1" class="btn behance">Behance</a>
-    <a href="https://wa.me/9647517050214" class="btn whatsapp">WhatsApp</a>
-  </div>
-
-  <footer>© 2026 SAHAND</footer>
-
-</div>
 
 </body>
 </html>
