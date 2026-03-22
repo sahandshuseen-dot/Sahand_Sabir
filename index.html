@@ -30,7 +30,6 @@
             box-sizing: border-box;
         }
 
-        /* Profile Section */
         .profile {
             text-align: center;
             margin-bottom: 50px;
@@ -49,7 +48,6 @@
         h1 { font-size: 30px; margin: 20px 0 5px; font-weight: 800; letter-spacing: -1.5px; }
         .tagline { color: #777; font-size: 16px; font-weight: 500; }
 
-        /* Section Titles */
         .section-header {
             font-weight: 800;
             font-size: 12px;
@@ -64,7 +62,6 @@
 
         .section-header::after { content: ""; height: 1px; background: #eee; flex: 1; }
 
-        /* Gallery */
         .gallery {
             display: flex;
             flex-direction: column;
@@ -75,4 +72,115 @@
             text-decoration: none;
             color: inherit;
             display: block;
-            transition: 0
+            transition: 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .img-container {
+            width: 100%;
+            border-radius: 28px;
+            overflow: hidden;
+            background: #f0f0f0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+
+        .project-card img {
+            width: 100%;
+            display: block;
+            transition: 0.5s;
+        }
+
+        .project-card:hover .img-container {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: var(--accent);
+        }
+
+        .project-info {
+            padding: 15px 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .project-info h3 { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: -0.5px; }
+        .project-info span { font-size: 12px; font-weight: 800; color: var(--accent); text-transform: uppercase; }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 22px;
+            border-radius: 22px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 800;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .btn-behance { background: #0057ff; color: #fff; box-shadow: 0 10px 20px rgba(0,87,255,0.2); }
+        .btn-whatsapp { background: #25D366; color: #fff; box-shadow: 0 10px 20px rgba(37,211,102,0.2); }
+        .btn:hover { transform: translateY(-3px); opacity: 0.9; }
+
+        footer { margin-top: 80px; font-size: 11px; color: #ddd; letter-spacing: 3px; font-weight: 700; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="profile">
+            <img src="https://i.postimg.cc/76vvPhQg/freepik-edit-Blue-photoprompt-Ultraphotorealistic-cinematic-edit-(3).jpg" alt="Sahand Sabir Hussein">
+            <h1>Sahand Sabir Hussein</h1>
+            <p class="tagline">Graphic Designer & Visual Artist</p>
+        </div>
+
+        <div class="section-header">Case Studies</div>
+        
+        <div class="gallery">
+            <a href="https://www.behance.net/gallery/235073637/Automotive-Visuals" class="project-card" target="_blank">
+                <div class="img-container">
+                    <img src="https://i.postimg.cc/zvzJCpYr/dffcab77f71a44775c91293605e2e680.jpg" alt="Automotive Visuals">
+                </div>
+                <div class="project-info">
+                    <h3>Automotive Visuals</h3>
+                    <span>View Project ↗</span>
+                </div>
+            </a>
+
+            <a href="https://www.behance.net/gallery/232752781/Teammart-Market" class="project-card" target="_blank">
+                <div class="img-container">
+                    <img src="https://i.postimg.cc/zBRWmzyJ/b33f935468a3e8b3f84b6260aa0a84b8.jpg" alt="Teammart Market">
+                </div>
+                <div class="project-info">
+                    <h3>Teammart Market</h3>
+                    <span>View Project ↗</span>
+                </div>
+            </a>
+
+            <a href="https://www.behance.net/gallery/204856845/Social-Media-Energy-Drink" class="project-card" target="_blank">
+                <div class="img-container">
+                    <img src="https://i.postimg.cc/VkYVzTBq/f6288eb2384348f1df1c40f5dd1839f6.jpg" alt="Energy Drink">
+                </div>
+                <div class="project-info">
+                    <h3>Energy Drink Campaign</h3>
+                    <span>View Project ↗</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="section-header">Contact & Bio</div>
+        <div class="links">
+            <a href="https://www.behance.net/sahandshusen1" class="btn btn-behance">Behance Portfolio</a>
+            <a href="https://wa.me/9647500000000" class="btn btn-whatsapp">Start a Project</a>
+        </div>
+
+        <footer>SAHAND SABIR HUSSEIN &copy; 2026</footer>
+    </div>
+
+</body>
+</html>
