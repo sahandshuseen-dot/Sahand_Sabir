@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Designer | Bio Link</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #007AFF; /* ڕەنگی شین بۆ دیزاینەر */
+            --bg: #ffffff;
+            --card-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            padding: 5px;
+        }
+
+        h1 { font-size: 22px; margin: 10px 0 5px; }
+        .bio { color: #666; font-size: 14px; margin-bottom: 25px; }
+
+        /* بەشی نموونەی کارەکان */
+        .section-title {
+            width: 100%;
+            max-width: 400px;
+            font-weight: bold;
+            margin: 20px 0 10px;
+            font-size: 16px;
+            border-right: 4px solid var(--accent);
+            padding-right: 10px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 30px;
+        }
+
+        .gallery img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #eee;
+            transition: 0.3s;
+        }
+
+        .gallery img:hover { transform: scale(1.05); }
+
+        /* بەشی لینکەکان */
+        .links {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link-item {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .link-item:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .link-item i { font-size: 14px; opacity: 0.6; }
+
+        footer { margin-top: 40px; font-size: 12px; color: #999; }
+    </style>
+</head>
+<body>
+
+    <div class="profile">
+        <img src="https://via.placeholder.com/100" alt="Logo">
+        <h1>ناوی تۆ لێرە</h1>
+        <p class="bio">پسپۆڕی دیزاینی پۆست و ستۆری سۆشیال میدیا</p>
+    </div>
+
+    <div class="section-title">دوایین کارەکانم</div>
+    <div class="gallery">
+        <img src="https://via.placeholder.com/150/007AFF/ffffff?text=Design+1" alt="Work 1">
+        <img src="https://via.placeholder.com/150/FF3B30/ffffff?text=Design+2" alt="Work 2">
+        <img src="https://via.placeholder.com/150/34C759/ffffff?text=Design+3" alt="Work 3">
+    </div>
+
+    <div class="section-title">پەیوەندی و سۆشیال میدیا</div>
+    <div class="links">
+        <a href="https://behance.net/username" class="link-item">
+            <span>🎨 بێهانس (پۆرتفۆلیۆ)</span>
+            <i>➔</i>
+        </a>
+        <a href="https://instagram.com/username" class="link-item">
+            <span>📸 ئینستاگرام</span>
+            <i>➔</i>
+        </a>
+        <a href="https://t.me/username" class="link-item">
+            <span>✈️ تێلیگرام</span>
+            <i>➔</i>
+        </a>
+        <a href="https://wa.me/964000000000" class="link-item" style="background: #25D366; color: white; border: none;">
+            <span>💬 داواکردنی دیزاین (واتسئەپ)</span>
+            <i>➔</i>
+        </a>
+    </div>
+
+    <footer>دیزاین کراوە بۆ ساڵی 2026</footer>
+
+</body>
+</html>
