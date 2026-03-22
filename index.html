@@ -1,287 +1,158 @@
 <!DOCTYPE html>
-
-<html lang="ku" dir="rtl">
-
+<html lang="en">
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Social Media Designer | Bio Link</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
-
+    <title>Graphic Designer | Bio Link</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-
         :root {
-
-            --primary: #1a1a1a;
-
-            --accent: #007AFF; /* ڕەنگی شین بۆ دیزاینەر */
-
+            --primary: #0a0a0a;
+            --accent: #007AFF; 
             --bg: #ffffff;
-
-            --card-bg: #f8f9fa;
-
+            --card-bg: #f5f5f7;
         }
-
-
 
         body {
-
-            font-family: 'Vazirmatn', sans-serif;
-
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg);
-
             margin: 0;
-
             padding: 20px;
-
             display: flex;
-
             flex-direction: column;
-
             align-items: center;
-
+            color: var(--primary);
         }
-
-
 
         .profile {
-
             text-align: center;
-
-            margin-top: 20px;
-
+            margin-top: 30px;
         }
-
-
 
         .profile img {
-
-            width: 100px;
-
-            height: 100px;
-
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-
+            object-fit: cover;
             border: 3px solid var(--accent);
-
-            padding: 5px;
-
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-
-
-        h1 { font-size: 22px; margin: 10px 0 5px; }
-
-        .bio { color: #666; font-size: 14px; margin-bottom: 25px; }
-
-
-
-        /* بەشی نموونەی کارەکان */
+        h1 { font-size: 24px; margin: 15px 0 5px; letter-spacing: -0.5px; }
+        .bio { color: #666; font-size: 15px; margin-bottom: 30px; }
 
         .section-title {
-
             width: 100%;
-
             max-width: 400px;
-
-            font-weight: bold;
-
-            margin: 20px 0 10px;
-
-            font-size: 16px;
-
-            border-right: 4px solid var(--accent);
-
-            padding-right: 10px;
-
+            font-weight: 700;
+            margin: 25px 0 12px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
         }
 
-
-
-        .gallery {
-
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 8px;
-
+        /* Portfolio Cards */
+        .portfolio-grid {
             width: 100%;
-
             max-width: 400px;
-
-            margin-bottom: 30px;
-
-        }
-
-
-
-        .gallery img {
-
-            width: 100%;
-
-            aspect-ratio: 1 / 1;
-
-            object-fit: cover;
-
-            border-radius: 8px;
-
-            background: #eee;
-
-            transition: 0.3s;
-
-        }
-
-
-
-        .gallery img:hover { transform: scale(1.05); }
-
-
-
-        /* بەشی لینکەکان */
-
-        .links {https://www.behance.net/sahandshusen1
-
-            width: 100%;
-
-            max-width: 400px;
-
             display: flex;
-
             flex-direction: column;
-
             gap: 12px;
-
         }
 
-
-
-        .link-item {
-
+        .work-card {
             background: var(--card-bg);
-
-            padding: 15px;
-
-            border-radius: 15px;
-
+            border-radius: 16px;
+            overflow: hidden;
             text-decoration: none;
-
             color: var(--primary);
-
-            font-weight: bold;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            transition: 0.3s;
-
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid #eee;
-
         }
 
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            border-color: var(--accent);
+        }
 
+        .work-info {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        .link-item:hover {
+        .work-info span { font-weight: 600; font-size: 15px; }
 
+        /* Social Links */
+        .links {
+            width: 100%;
+            max-width: 400px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .social-btn {
             background: var(--primary);
-
             color: white;
-
+            padding: 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
         }
 
+        .social-btn:hover { opacity: 0.8; }
+        .whatsapp { background: #25D366; }
 
-
-        .link-item i { font-size: 14px; opacity: 0.6; }
-
-
-
-        footer { margin-top: 40px; font-size: 12px; color: #999; }
-
+        footer { margin-top: 50px; font-size: 12px; color: #bbb; padding-bottom: 20px; }
     </style>
-
 </head>
-
 <body>
 
-
-
     <div class="profile">
-
-        <img src="https://via.placeholder.com/100" alt="Logo">
-
-        <h1>Sahand Sabir Huseen </h1>
-
-        <p class="bio">Graphic Designer</p>
-
+        <img src="profile.jpg" alt="Designer Profile">
+        <h1>Your Name</h1>
+        <p class="bio">Social Media Design Specialist</p>
     </div>
 
+    <div class="section-title">Latest Works</div>
+    <div class="portfolio-grid">
+        <a href="https://www.behance.net/gallery/230238317/SUN-SET" class="work-card" target="_blank">
+            <div class="work-info">
+                <span>🌅 Sun Set Project</span>
+                <small>Behance ↗</small>
+            </div>
+        </a>
 
+        <a href="https://www.behance.net/gallery/232752781/Teammart-Market" class="work-card" target="_blank">
+            <div class="work-info">
+                <span>🛒 Teammart Market</span>
+                <small>Behance ↗</small>
+            </div>
+        </a>
 
-    <div class="section-title">دوایین کارەکانم</div>
-
-    <div class="gallery">
-
-        <img src=https://www.behance.net/gallery/230238317/SUN-SET150/007AFF/ffffff?text=Design+1" alt="Work 1">/
-
-        <img src="https://via.placeholder.com/150/FF3B30/ffffff?text=Design+2" alt="Work 2">
-
-        <img src="https://via.placeholder.com/150/34C759/ffffff?text=Design+3" alt="Work 3">
-
+        <a href="https://www.behance.net/gallery/204856845/Social-Media-Energy-Drink" class="work-card" target="_blank">
+            <div class="work-info">
+                <span>⚡ Energy Drink Ad</span>
+                <small>Behance ↗</small>
+            </div>
+        </a>
     </div>
 
-
-
-    <div class="section-title">پەیوەندی و سۆشیال میدیا</div>
-
+    <div class="section-title">Connect With Me</div>
     <div class="links">
-
-        <a href="https://behance.net/sahandshusen1" class="link-item">
-
-            <span>🎨 بێهانس (پۆرتفۆلیۆ)</span>
-
-            <i>➔</i>
-
-        </a>
-
-        <a href="https://instagram.com/username" class="link-item">
-
-            <span>📸 ئینستاگرام</span>
-
-            <i>➔</i>
-
-        </a>
-
-        <a href="https://t.me/username" class="link-item">
-
-            <span>✈️ تێلیگرام</span>
-
-            <i>➔</i>
-
-        </a>
-
-        <a href="https://wa.me/964000000000" class="link-item" style="background: #25D366; color: white; border: none;">
-
-            <span>💬 داواکردنی دیزاین (واتسئەپ)</span>
-
-            <i>➔</i>
-
-        </a>
-
+        <a href="https://instagram.com/yourusername" class="social-btn">Instagram</a>
+        <a href="https://wa.me/964000000000" class="social-btn whatsapp">WhatsApp</a>
     </div>
 
-
-
-    <footer>دیزاین کراوە بۆ ساڵی 2026</footer>
-
-
+    <footer>&copy; 2026 | Professional Design Services</footer>
 
 </body>
-
 </html>
